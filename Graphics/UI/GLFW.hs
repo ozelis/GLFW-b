@@ -51,12 +51,13 @@ module Graphics.UI.GLFW
 
     -- * Window handling
   , Window
-  , WindowHint        (..)
-  , FocusState        (..)
-  , IconifyState      (..)
-  , ContextRobustness (..)
-  , OpenGLProfile     (..)
-  , ClientAPI         (..)
+  , WindowHint         (..)
+  , FocusState         (..)
+  , IconifyState       (..)
+  , ContextRobustness  (..)
+  , OpenGLProfile      (..)
+  , ClientAPI          (..)
+  , ContextCreationAPI (..)
     --
   , defaultWindowHints
   , windowHint

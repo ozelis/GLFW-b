@@ -145,7 +145,7 @@ data WindowHint =
   | WindowHint'ContextVersionMajor Int
   | WindowHint'ContextVersionMinor Int
   | WindowHint'ContextRobustness   ContextRobustness
-  | WindowHint'ContextCreationAPI  Int
+  | WindowHint'ContextCreationAPI  ContextCreationAPI
   | WindowHint'OpenGLForwardCompat Bool
   | WindowHint'OpenGLDebugContext  Bool
   | WindowHint'OpenGLProfile       OpenGLProfile
@@ -181,6 +181,12 @@ data OpenGLProfile =
 data ClientAPI =
     ClientAPI'OpenGL
   | ClientAPI'OpenGLES
+  deriving (Data, Enum, Eq, Ord, Read, Show, Typeable, Generic)
+
+-- | The type of context to create.
+data ContextCreationAPI =
+    ContextCreationAPI'Native
+  | ContextCreationAPI'EGL
   deriving (Data, Enum, Eq, Ord, Read, Show, Typeable, Generic)
 
 --------------------------------------------------------------------------------
