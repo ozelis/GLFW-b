@@ -2,10 +2,19 @@ flags: {}
 packages: 
 - '.'
 
+# - location:
+    # git: https://github.com/bsl/bindings-GLFW.git
+    # commit: 2ff8cea47fdda7c7bdfd3a8cc477134bcb24c0e1
+  # extra-dep: true
+
 - location:
-    git: https://github.com/bsl/bindings-GLFW.git
-    commit: 2ff8cea47fdda7c7bdfd3a8cc477134bcb24c0e1
+    git: https://github.com/ozelis/bindings-GLFW.git
+    commit: db720e59ff51ef78a43449a4adad78c1a26926ec
   extra-dep: true
+
+flags:
+  bindings-GLFW:
+    system-GLFW: true
 
 extra-deps: []
 resolver: lts-5.2

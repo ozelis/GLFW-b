@@ -87,6 +87,7 @@ module Graphics.UI.GLFW
   , getWindowContextVersionMinor       -- |
   , getWindowContextVersionRevision    -- |
   , getWindowContextRobustness         -- |
+  , getWindowContextCreationAPI        -- |
   , getWindowOpenGLForwardCompat       -- |
   , getWindowOpenGLDebugContext        -- |
   , getWindowOpenGLProfile  --------------'
@@ -564,6 +565,7 @@ windowHint wh =
       (WindowHint'ContextVersionMajor x) -> (c'GLFW_CONTEXT_VERSION_MAJOR, toC x)
       (WindowHint'ContextVersionMinor x) -> (c'GLFW_CONTEXT_VERSION_MINOR, toC x)
       (WindowHint'ContextRobustness   x) -> (c'GLFW_CONTEXT_ROBUSTNESS,    toC x)
+      (WindowHint'ContextCreationAPI  x) -> (c'GLFW_CONTEXT_CREATION_API,  toC x)
       (WindowHint'OpenGLForwardCompat x) -> (c'GLFW_OPENGL_FORWARD_COMPAT, toC x)
       (WindowHint'OpenGLDebugContext  x) -> (c'GLFW_OPENGL_DEBUG_CONTEXT,  toC x)
       (WindowHint'OpenGLProfile       x) -> (c'GLFW_OPENGL_PROFILE,        toC x)
@@ -814,6 +816,12 @@ getWindowContextVersionRevision win =
 getWindowContextRobustness :: Window -> IO ContextRobustness
 getWindowContextRobustness win =
     fromC `fmap` c'glfwGetWindowAttrib (toC win) c'GLFW_CONTEXT_ROBUSTNESS
+
+-- | The context creation API of this window.
+-- See <http://www.glfw.org/docs/latest/group__window.html#gacccb29947ea4b16860ebef42c2cb9337 glfwGetWindowAttrib>
+getWindowContextCreationAPI :: Window -> IO Int
+getWindowContextCreationAPI win =
+    fromC `fmap` c'glfwGetWindowAttrib (toC win) c'GLFW_CONTEXT_CREATION_API
 
 -- | If this window is set for opengl to be forward compatible.
 -- See <http://www.glfw.org/docs/latest/group__window.html#gacccb29947ea4b16860ebef42c2cb9337 glfwGetWindowAttrib>
